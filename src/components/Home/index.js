@@ -20,37 +20,33 @@ import {
 } from './styledComponents'
 
 class Home extends Component {
-  state = {display: 'flex'}
+  state = {popup: true}
 
   onClickClose = () => {
-    this.setState({display: 'none'})
+    this.setState({popup: false})
   }
 
-  renderBannerImage = () => {
-    const {display} = this.state
-    return (
-      <HomeBarContainer data-testid="banner" display={display}>
-        <CloseButton
-          type="button"
-          onClick={this.onClickClose}
-          data-testid="close"
-        >
-          <GrClose size={20} />
-        </CloseButton>
-        <NxtLogo
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-          alt="nxt watch logo"
-        />
-        <BuyText>
-          Buy Nxt Watch Premium <br />
-          prepaid plans with UPI
-        </BuyText>
-        <GetButton type="button">GET IT NOW</GetButton>
-      </HomeBarContainer>
-    )
-  }
+  renderBannerImage = () => (
+    <HomeBarContainer data-testid="banner">
+      <CloseButton
+        data-testid="close"
+        type="button"
+        onClick={this.onClickClose}
+      >
+        <GrClose size={20} />
+      </CloseButton>
+
+      <NxtLogo
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+        alt="nxt watch logo"
+      />
+      <BuyText>Buy Nxt Watch Premium prepaid plans with UPI</BuyText>
+      <GetButton type="button">GET IT NOW</GetButton>
+    </HomeBarContainer>
+  )
 
   render() {
+    const {popup} = this.state
     return (
       <WatchContext.Consumer>
         {value => {
@@ -63,7 +59,7 @@ class Home extends Component {
               <HomeContainer data-testid="home" bgColor={bgColor}>
                 <SideBar />
                 <MainHomeContainer>
-                  {this.renderBannerImage()}
+                  {popup && this.renderBannerImage()}
 
                   <Videos />
                 </MainHomeContainer>
