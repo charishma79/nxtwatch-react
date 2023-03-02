@@ -15,6 +15,7 @@ import {
   NavLink,
   ChannelContainer,
   Published,
+  ViewsCount,
 } from './styledComponents'
 
 const SavedVideoCard = props => {
@@ -28,13 +29,13 @@ const SavedVideoCard = props => {
     id,
   } = savedVideoDetails
   const {name, profileImageUrl} = channel
-  let postedAt = formatDistanceToNow(new Date(publishedAt))
+  let publishedDate = formatDistanceToNow(new Date(publishedAt))
 
-  const postedAtList = postedAt.split(' ')
+  const postedAtList = publishedDate.split(' ')
 
   if (postedAtList.length === 3) {
     postedAtList.shift()
-    postedAt = postedAtList.join(' ')
+    publishedDate = postedAtList.join(' ')
   }
 
   return (
@@ -59,7 +60,8 @@ const SavedVideoCard = props => {
                     <ChannelName>{name}</ChannelName>
                     <DateContainer>
                       <Views> {viewCount} views</Views>
-                      <Published> {postedAt} </Published>
+                      <ViewsCount> . {viewCount} views</ViewsCount>
+                      <Published> . {publishedDate} ago</Published>
                     </DateContainer>
                   </ChannelContainer>
                 </ChannelInfo>
