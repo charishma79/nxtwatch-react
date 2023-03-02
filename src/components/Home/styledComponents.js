@@ -29,7 +29,6 @@ export const HomeBarContainer = styled.div`
   padding-right: 35px;
   padding-top: 15px;
   padding-left: 15px;
-  display: ${props => props.display};
   @media screen and (max-width: 767px) {
     height: 40vh;
   }
