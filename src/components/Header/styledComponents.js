@@ -40,33 +40,53 @@ export const CloseButton = styled.div`
   margin-top: 10px;
   margin-right: 10px;
 `
-export const LogoutPopupContent = styled.div`
-  background-color: ${props =>
-    props.theme === 'dark' ? '#0f0f0f' : '#f9f9f9'};
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  margin: auto;
+
+export const Heading = styled.p`
+    font-family:'Roboto'
+    font-size:23px;
+    color: ${props => props.color};
+    margin-bottom:30px;
+`
+
+export const ModalContainer = styled.div`
+  background-color: ${props => props.bgColor};
+  border-radius: 10px;
+  min-height: 18vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: ${props => (props.theme === 'dark' ? '#f9f9f9' : '#0f0f0f')};
-  @media screen and (min-width: 768px) {
-    width: 50%;
+  justify-content: center;
+  width: 20vw;
+  padding: 15px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
 `
 
-export const Button = styled.button`
-  background-color: ${props => (props.outline ? 'transparent' : '#3b82f6')};
+export const CancelButton = styled.button`
+  background-color: transparent;
+  height: 39px;
   width: 80px;
-  height: 35px;
-  margin: 5px;
-  color: ${props => (props.outline ? '#3b82f6' : 'white')};
-  border-radius: 5px;
-  outline: none;
-  border: 1px solid #3b82f6;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 15px;
+  margin-right: 20px;
+  cursor: pointer;
 `
+export const ConfirmButton = styled(CancelButton)`
+  background-color: #3b82f6;
+  border: none;
+  color: #f1f1f1;
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`
+
 export const ProfileIcon = styled.img`
   width: 25px;
   margin-left: 15px;
@@ -77,21 +97,24 @@ export const NavLargeIcons = styled.div`
   flex-direction: row;
   align-items: center;
 `
-export const LargeLogoutButton = styled(Button)`
+export const LargeLogoutButton = styled.button`
   margin: 0px;
   margin-left: 15px;
   margin-right: 15px;
-  height: 25px;
-  color: ${props => (props.theme === 'dark' ? '#f9f9f9' : '#3b82f6')};
-  border-color: ${props => (props.theme === 'dark' ? '#f9f9f9' : '#3b82f6')};
+  height: 40px;
+  width: 90px;
+  padding: 10px;
+  background-color: transparent;
+  border: ${props => props.border};
+  color: ${props => props.color};
 `
 export const MenuPopupMobile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: black;
-  width: 100%;
+
+  width: 100vw;
   height: 100vh;
   padding-top: 20px;
   background-color: ${props =>
@@ -99,8 +122,8 @@ export const MenuPopupMobile = styled.div`
 `
 export const MenuListMobile = styled.div`
   width: 100%;
-  flex-grow: 1;
   display: flex;
+  padding-top: 120px;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 `
