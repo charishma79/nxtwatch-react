@@ -26,7 +26,10 @@ export const HeaderLogoImg = styled.img`
     width: 20 0px;
   }
 `
-export const NavMobileIcons = styled.div``
+export const NavMobileIcons = styled.div`
+display: flex;
+  align-items: center;
+  `
 
 export const IconButton = styled.button`
   background-color: transparent;
