@@ -24,13 +24,16 @@ import {
   IconButton,
   CloseButton,
   NavLargeContainer,
-  LogoutPopupContent,
-  Button,
   ProfileIcon,
   NavLargeIcons,
   LargeLogoutButton,
   MenuPopupMobile,
   MenuListMobile,
+  ModalContainer,
+  Heading,
+  ButtonContainer,
+  CancelButton,
+  ConfirmButton,
 } from './styledComponents'
 
 class Header extends Component {
@@ -47,6 +50,10 @@ class Header extends Component {
           const theme = isDarkTheme ? 'dark' : 'light'
 
           const color = isDarkTheme ? 'white' : 'black'
+
+          const textColor = isDarkTheme ? '#f9f9f9' : '#212121'
+
+          const logoutBgColor = isDarkTheme ? '#212121' : '#ffffff'
 
           const onClickLogout = () => {
             const {history} = this.props
@@ -115,22 +122,23 @@ class Header extends Component {
                     className="logout-popup"
                   >
                     {close => (
-                      <LogoutPopupContent theme={theme}>
-                        <p>Are you sure, you want to logout</p>
-                        <div>
-                          <Button outline type="button" onClick={() => close()}>
-                            Cancel
-                          </Button>
-                          <Button
-                            bgColor="blue"
-                            color="white"
+                      <ModalContainer bgColor={logoutBgColor}>
+                        <Heading color={textColor}>
+                          Are you sure, you want to logout?
+                        </Heading>
+                        <ButtonContainer>
+                          <CancelButton
                             type="button"
-                            onClick={onClickLogout}
+                            onClick={() => close()}
+                            color={color}
                           >
+                            Cancel
+                          </CancelButton>
+                          <ConfirmButton type="button" onClick={onClickLogout}>
                             Confirm
-                          </Button>
-                        </div>
-                      </LogoutPopupContent>
+                          </ConfirmButton>
+                        </ButtonContainer>
+                      </ModalContainer>
                     )}
                   </Popup>
                 </NavMobileIcons>
@@ -139,6 +147,7 @@ class Header extends Component {
                 <WatchContext.Consumer>
                   {activeValue => {
                     const {onClickActiveTab} = activeValue
+
                     return (
                       <Link to="/">
                         <HeaderLogoImg
@@ -167,29 +176,41 @@ class Header extends Component {
                   <Popup
                     modal
                     trigger={
-                      <LargeLogoutButton theme={theme} outline>
+                      <LargeLogoutButton
+                        theme={theme}
+                        color={isDarkTheme ? '#ffffff' : '#3b82f6'}
+                        border={
+                          isDarkTheme
+                            ? '2px solid #ffffff'
+                            : '2px solid #3b82f6'
+                        }
+                      >
                         Logout
                       </LargeLogoutButton>
                     }
                     className="logout-popup"
                   >
                     {close => (
-                      <LogoutPopupContent theme={theme}>
-                        <p>Are you sure, you want to logout</p>
-                        <div>
-                          <Button outline type="button" onClick={() => close()}>
-                            Cancel
-                          </Button>
-                          <Button
-                            bgColor="blue"
-                            color="white"
+                      <ModalContainer bgColor={logoutBgColor}>
+                        <Heading color={textColor}>
+                          Are you sure, you want to logout?
+                        </Heading>
+                        <ButtonContainer>
+                          <CancelButton
                             type="button"
-                            onClick={onClickLogout}
+                            onClick={() => close()}
+                            color={color}
+                          >
+                            Cancel
+                          </CancelButton>
+                          <ConfirmButton
+                            type="button"
+                            onClick={this.onClickLogout}
                           >
                             Confirm
-                          </Button>
-                        </div>
-                      </LogoutPopupContent>
+                          </ConfirmButton>
+                        </ButtonContainer>
+                      </ModalContainer>
                     )}
                   </Popup>
                 </NavLargeIcons>
