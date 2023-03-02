@@ -11,15 +11,16 @@ export const MenuItemList = styled.ul`
 
 export const MenuLink = styled.li`
   display: flex;
-  flex-direction: row;
   align-items: center;
   text-decoration: none;
+  width: 100%;
+  padding-left: 10px;
+
   background-color: ${props => {
     const {theme} = props
     const color = theme === 'dark' ? '#424242' : '#e2e8f0'
     return props.isActive ? color : ''
   }};
-  padding-left: 20px;
 `
 
 export const MenuHeading = styled.p`
