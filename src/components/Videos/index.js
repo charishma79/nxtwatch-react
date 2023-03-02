@@ -22,6 +22,7 @@ import {
   FailureHeading,
   FailureText,
   RetryButton,
+  VideoRetryButton,
 } from './styledComponents'
 
 const apiStatusConstants = {
@@ -126,9 +127,9 @@ class Videos extends Component {
                 We are having some trouble to complete your request. <br />
                 Please try again.
               </FailureText>
-              <RetryButton type="button" onClick={this.getVideos}>
+              <VideoRetryButton type="button" onClick={this.getVideos}>
                 Retry
-              </RetryButton>
+              </VideoRetryButton>
             </FailureContainer>
           )
 
@@ -156,9 +157,7 @@ class Videos extends Component {
                     <FailureText text={failureTextColor}>
                       Try different key words or remove search filter
                     </FailureText>
-                    <RetryButton type="button" onClick={this.getVideos}>
-                      Retry
-                    </RetryButton>
+                    <RetryButton type="button">Retry</RetryButton>
                   </FailureContainer>
                 )}
               </>
