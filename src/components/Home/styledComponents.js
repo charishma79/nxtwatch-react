@@ -18,6 +18,7 @@ export const HomeContainer = styled.div`
   background-color: ${props => props.bgColor};
   width: 100vw;
 `
+
 export const HomeBarContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   height: 45vh;
@@ -33,7 +34,7 @@ export const HomeBarContainer = styled.div`
     height: 40vh;
   }
 `
-export const CloseButton = styled.div`
+export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
