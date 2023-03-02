@@ -199,12 +199,12 @@ class VideoItemDetails extends Component {
 
             return (
               <VideoViewContainer>
-                <ReactPlayer url={videoUrl} width="95%" height="500px" />
+                <ReactPlayer url={videoUrl} width="100%" height="400px" />
                 <VideoParagraph title={titleColor}>{title}</VideoParagraph>
                 <VideoInfoCard>
                   <DateContainer viewColor={viewColor}>
                     <Views>{viewCount} views</Views>
-                    <Views>. {publishedDate} ago</Views>
+                    <Views> . {publishedDate} ago</Views>
                   </DateContainer>
                   <VideoIconsContainer>
                     <IconButton
