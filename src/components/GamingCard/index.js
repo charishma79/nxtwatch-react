@@ -15,18 +15,22 @@ const GamingCard = props => {
   return (
     <WatchContext.Consumer>
       {value => {
-        const {isDarkTheme} = value
+        const {isDarkTheme, onClickActiveTab} = value
 
         const titleColor = isDarkTheme ? '#e2e8f0' : '#0f0f0f'
 
         const viewColor = isDarkTheme ? ' #475569' : '#616e7c'
         return (
-          <NavLink to={`/videos/${id}`}>
+          <NavLink
+            to={`/videos/${id}`}
+            onClick={() => onClickActiveTab('INITIAL')}
+          >
             <GamingListItem>
               <GamingImg src={thumbnailUrl} alt="video thumbnail" />
               <Title titleColor={titleColor}>{title}</Title>
-              <Views viewColor={viewColor}>{viewCount} Watching</Views>
-              <Views viewColor={viewColor}>Worldwide</Views>
+              <Views viewColor={viewColor}>
+                {viewCount} Watching Worldwide
+              </Views>
             </GamingListItem>
           </NavLink>
         )
