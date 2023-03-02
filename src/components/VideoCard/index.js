@@ -14,6 +14,8 @@ import {
   Views,
   DateContainer,
   NavLink,
+  ViewsCount,
+  Published,
 } from './styledComponents'
 
 const VideoCard = props => {
@@ -57,7 +59,9 @@ const VideoCard = props => {
                     <ChannelName>{name}</ChannelName>
                     <DateContainer>
                       <Views>{viewCount} views</Views>
-                      <Views> . {publishedDate} ago</Views>
+                      <ViewsCount> . {viewCount} views</ViewsCount>
+
+                      <Published> . {publishedDate} ago </Published>
                     </DateContainer>
                   </ChannelContainer>
                 </ChannelInfo>
