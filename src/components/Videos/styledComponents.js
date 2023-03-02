@@ -73,6 +73,7 @@ export const FailureText = styled.p`
     font-size: 14px;
   }
 `
+
 export const RetryButton = styled.button`
   background-color: #4f46e5;
   height: 35px;
@@ -86,6 +87,9 @@ export const RetryButton = styled.button`
   font-weight: 500;
   border-radius: 3px;
   padding: 8px;
+`
+export const VideoRetryButton = styled(RetryButton)`
+  height: 38px;
 `
 export const UnorderedList = styled.ul`
   list-style-type: none;
