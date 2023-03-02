@@ -78,13 +78,35 @@ export const ChannelInfo = styled.div`
 `
 
 export const Views = styled.p`
+  margin-right: 2px;
+  font-size: 16px;
+  margin-top: 0px;
+  font-family: Roboto;
+  font-weight: 400;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
+export const ViewsCount = styled.p`
+  margin-right: 2px;
+  font-size: 10px;
+  margin-top: 0px;
+  font-family: Roboto;
+  font-weight: 400;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`
+
+export const Published = styled.p`
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
   margin-top: 0px;
-  margin-right: 10px;
+  margin-left: 10px;
   @media screen and (max-width: 767px) {
-    margin-right: 10px;
+    margin-right: 2px;
     font-size: 10px;
   }
 `
